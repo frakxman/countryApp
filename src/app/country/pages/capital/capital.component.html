@@ -1,0 +1,21 @@
+<h2>For Capital</h2>
+
+<div class="row col">
+    <app-country-input
+        (onEnter)="search( $event )"
+        placeholder="Search capital"
+    ></app-country-input>
+</div>
+
+<hr>
+
+<div *ngIf="anError" class="alert alert-danger">
+    Not found information related with {{ term }}
+</div>
+
+
+<div *ngIf="countries.length > 0" class="row">
+    <div class="col">
+        <app-country-table [countries]="countries"></app-country-table>
+    </div>
+</div>

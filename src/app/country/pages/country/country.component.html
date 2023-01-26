@@ -1,0 +1,47 @@
+<div *ngIf="!country; else divCountry" class="alert alert-info">
+    Wait please..
+</div>
+
+<ng-template #divCountry>
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center">{{ country.name.common }}</h1>
+            <hr>
+        </div>
+        <!-- FLaga and Coat -->
+        <div class="row">
+            <div class="col-6">
+                <h3 class="text-center">Flag</h3>
+                <img [src]="country.flags.svg" alt="flag" class="flag">
+            </div>
+            <div class="col-6">
+                <h3 class="text-center">Coat of Arms</h3>
+                <img [src]="country.coatOfArms.svg" alt="coat of arms" class="coat">
+            </div>
+        </div>
+        <!-- Information -->
+        <div class="row">
+            <div class="col">
+                <h3>Information</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <strong>Official name: </strong> {{ country.name.official }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Population: </strong> {{ country.population | number }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Capital city: </strong> {{ country.capital }}
+                    </li>
+                    <!-- <li class="list-group-item">
+                        <strong>Borders: </strong> {{ country.borders }}
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+
+        <button class="btn btn-primary mt-2" [routerLink]="['']">Back</button>
+        
+    </div>
+</ng-template>
+
